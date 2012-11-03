@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<style type="text/css">
+	@import "core.css";
+	@import "essay.css";
+</style>
+
+<script type="text/javascript" src="assets/js/feature.js"></script>
+
+<script type="text/javascript">
+
+// So many variables to declare...
+var geology = new Feature("has interesting geology (weird looking mountains, strange rock formations, etc)");
+var architecture = new Feature("has interesting architecture (Huts, First Age Ruins/Buildings, Solar Graves, etc.)");
+var aura = new Feature("has an interesting aura (i.e. Shadowland/Wyld zone nearby/on island)");
+var flora = new Feature("has interesting flora (Nymph's Blood, Mother Bog, etc.)");
+var fauna = new Feature("has interesting fauna (Rock Rollers, 1000 Hungry Wings, etc.)");
+var lands = new Array(geology, architecture, aura, flora, fauna);
+var landFeatures = new FeatureSet(false, lands);
+
+var women = new Feature("is ruled by women/Tya oupost");
+var god = new Feature( "is ruled by a god");
+var exalt = new Feature("is ruled by an exalt");
+var mortal = new Feature("is ruled by a mortal with magic of some kind (godblood, has an artifact, etc)");
+var council = new Feature("has more than one ruler (council, democracy, etc.)");
+var rulers = new Array(women, god, exalt, mortal, council);
+var rulerFeatures = new FeatureSet(false, rulers);
+
+
+var supernatural = new Feature("is a city of Ghosts/Beastmen/Wyld Mutants/etc.");
+var pirate = new Feature("is a pirate port");
+var tribal = new Feature("is a tribal Society");
+var firstAge = new Feature("has limited use of First Age Tech");
+var realm = new Feature("is very Loyal to Realm/DBs still living there/Immaculate monestary");
+var rebel = new Feature("is planning to rebel against their rulers");
+var famous = new Feature("is famed for something (pearls, shipbuilding, library, etc.)");
+var wealth = new Feature("is Wealthy/Poor");
+var defense = new Feature("has good defences (large navy, protected shores, first age weapons, etc.)");
+var rivalry = new Feature("has a rivialry with another island.");
+var societal = new Array(supernatural, pirate, tribal, firstAge, realm, rebel, famous, wealth, defense, rivalry);
+var societalFeatures = new FeatureSet(false, societal);
+
+var raksha1 = new Feature("is about to be attacked by fair folk/wyld mutants/Lunars & Beastmen");
+var undead1 = new Feature("is about to be attacked by undead/Spirit(s)");
+var nation1 = new Feature("is about to be attacked by another nation/Realm Legions");
+var pirates1 = new Feature("is about to be attacked by pirates/Realm Noble House");
+
+var raksha2 = new Feature("has been attacked by fair folk/wyld mutants/Lunars & Beastmen");
+var undead2 = new Feature("has been attacked by undead/Spirit(s)");
+var nation2 = new Feature("has been attacked by another nation/Realm Legions");
+var pirates2 = new Feature("has been attacked by pirates/Realm Noble House");
+var beenAttacked = new Array(raksha2, undead2, nation2, pirates2);
+var attackedFeatures = new FeatureSet(false, beenAttacked);
+
+var attacked = new Array(raksha1, undead1, nation1, pirates1, attackedFeatures);
+var attackFeatures = new FeatureSet(false, attacked);
+
+var natural = new Feature("has abundant natural resources (MM deposits, good fishing, nice pearls, etc.)");
+var elemental = new Feature( "has elemental connotations (flying island, active volcano, under-ground/water city, etc.)");
+var city = new Feature("has no city");
+var domain = new Feature("has the domain of a powerful being");
+var others = new Array(natural, elemental, city, domain);
+var otherFeatures = new FeatureSet(true, others);
+
+var islands = new Array(landFeatures, rulerFeatures, societalFeatures, attackFeatures, otherFeatures);
+var islandFeatures = new FeatureSet(true, islands);
+// ... So little time.
+
+
+function EchoRandomIsland()
+{
+	document.getElementById("island").innerHTML = "The island " + islandFeatures.getFeature() + ".";
+}
+
+</script>
+</head>
+<body>
+<div id="main">
+	
+<div id="content">
+<div id="text">
+<p id="island"></p>
+
+<div id="start">
+<button type="button" onclick="EchoRandomIsland()">New Island</button>
+</div>
+
+</div><!-- //text -->
+</div><!-- //content -->
+
+</div><!-- //main -->
+</body>
+</html>

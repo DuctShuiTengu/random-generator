@@ -1,0 +1,14 @@
+{
+  "name": "Random Feature Generator",
+  "version": "0.3.0",
+  "author": "Jonathan Buck <jonathan@melindrea.net>",
+  "description": "A generator of random features",
+  "contributors": [ 
+    {
+      "name": "Marie Hogebrandt",
+      "email": "webmistress@melindrea.net"
+    } 
+  ],
+  "license": "MIT"
+}
+
